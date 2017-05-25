@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+	
+<struts>
+
+    <constant name="struts.enable.DynamicMethodInvocation" value="false" />
+    <constant name="struts.devMode" value="true" />
+    
+    <package name="WeiXin" namespace="/" extends="struts-default">
+    	<action name="wkTest"  class="com.action.DoReplyAction">
+    	</action>
+    </package>
+    
+    
+    <package name="login" namespace="/" extends="struts-default,json-default">
+    	<action name="login" class="com.login.LoginAction">
+    		<result name="error" type="redirect">/index.jsp</result>
+    		<result name="success" type="redirectAction">view</result>
+    	</action>
+    </package>
+    
+    <package name="view" namespace="/" extends="struts-default,json-default">
+    	<action name="view" class="com.view.initViewAction">
+    		<result name="khView">/WEB-INF/dataView.jsp</result>
+    		<result name="success">/WEB-INF/main.jsp</result>
+    		<result name="error" type="redirect">/index.jsp</result>
+    	</action>
+    </package>
+    
+    <package name="dataContrl" namespace="/" extends="struts-default">
+    	<action name="KH_ADD" class="com.dataContrl.User_add" method="addKH">
+    		<result name="success">/WEB-INF/main.jsp</result>
+    		<result name="error">/WEB-INF/main.jsp</result>
+    	</action>
+    	
+    	<action name="SGZ_ADD" class="com.dataContrl.User_add" method="addSGZ">
+    		<result name="success">/WEB-INF/main.jsp</result>
+    		<result name="error">/WEB-INF/main.jsp</result>
+    	</action>
+    	
+    	<action name="GLZ_ADD" class="com.dataContrl.User_add" method="addGLZ">
+    		<result name="success">/WEB-INF/main.jsp</result>
+    		<result name="error">/WEB-INF/main.jsp</result>
+    	</action>
+    	
+    	<action name="GC_ADD" class="com.dataContrl.Gc_add">
+    		<result name="success">/WEB-INF/main.jsp</result>
+    		<result name="error">/WEB-INF/main.jsp</result>
+    	</action>
+    	
+    </package>
+    
+    <package name="viewRedirect" namespace="/" extends="struts-default">
+    	<action name="viewSession" class="com.view.ViewSession">
+    		<result name="success">/WEB-INF/dataView.jsp</result>
+    		<result name="error">/WEB-INF/main.jsp</result>
+    	</action>
+    </package>
+    
+    <package name="partData" namespace="/" extends="struts-default,json-default">
+    	<action name="getPartData" class="com.dataContrl.PartDataResponse">
+    	</action>
+    	<action name="getUserData" class="com.dataContrl.UserAllData">
+    	</action>
+    </package>
+    
+    <package name="delete" namespace="/" extends="struts-default">
+    	<action name="deleteKH" class="com.dataContrl.EditKHData">
+    		<result name="success">/WEB-INF/main.jsp</result>
+    		<result name="error">/WEB-INF/main.jsp</result>
+    	</action>
+    	<action name="deleteGLZ" class="com.dataContrl.EditGLZData">
+    		<result name="success">/WEB-INF/main.jsp</result>
+    		<result name="error">/WEB-INF/main.jsp</result>
+    	</action>
+    	<action name="deleteSGZ" class="com.dataContrl.EditSGZData">
+    		<result name="success">/WEB-INF/main.jsp</result>
+    		<result name="error">/WEB-INF/main.jsp</result>
+    	</action>
+    	<action name="deleteGC" class="com.dataContrl.EditGCData">
+    		<result name="success">/WEB-INF/main.jsp</result>
+    		<result name="error">/WEB-INF/main.jsp</result>
+    	</action>
+    </package>
+    
+    <package name="logdata" namespace="/" extends="struts-default">
+    	<action name="editlog" class="com.dataContrl.EditLog">
+    	</action>
+    </package>
+    
+     <package name="edit" namespace="/" extends="struts-default">
+    	<action name="edit" class="com.dataContrl.EditData" method="reponseFunc">
+    		<result name="success">/WEB-INF/editData.jsp</result>
+    	</action>
+    	<action name="editData" class="com.dataContrl.EditData">
+    		<result name="success">/WEB-INF/editData.jsp</result>
+    		<result name="error">/WEB-INF/editData.jsp</result>
+    	</action>
+    </package>
+</struts>

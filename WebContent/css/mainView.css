@@ -1,0 +1,13 @@
+@CHARSET "UTF-8";
+
+.mytable {
+	text-align:center;
+}
+
+.mytable input{
+	width:100%;
+}
+
+.mytable th{
+	text-align:center;
+}
